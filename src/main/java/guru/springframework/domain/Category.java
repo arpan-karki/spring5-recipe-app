@@ -2,12 +2,23 @@ package guru.springframework.domain;
 
 import java.util.Set;
 
+
 import javax.persistence.*;
 
 import javax.persistence.Entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
-public class Category {
+public class Category{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,31 +26,8 @@ public class Category {
 
 	private String description;
 	
-	@ManyToMany(mappedBy = "categories")
+	@ManyToMany(mappedBy = "categories" ,fetch = FetchType.EAGER)
 	private Set<Recipe> recipes;
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCategoryName() {
-		return description;
-	}
-
-	public void setCategoryName(String categoryName) {
-		this.description = categoryName;
-	}
-
-	public Set<Recipe> getRecipies() {
-		return recipes;
-	}
-
-	public void setRecipies(Set<Recipe> recipes) {
-		this.recipes = recipes;
-	}
-
+	
 }

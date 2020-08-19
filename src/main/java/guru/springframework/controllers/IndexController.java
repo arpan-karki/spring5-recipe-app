@@ -12,8 +12,10 @@ import guru.springframework.domain.UnitOfMeasure;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
 import guru.springframework.service.RecipeService;
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor
 public class IndexController {
 
 	@Autowired
